@@ -59,7 +59,7 @@ def get_yahoo_crumb(force=False):
         if delta < _YAHOO_TTL:
             return (_YAHOO_CRUMB, _YAHOO_COOKIE)
 
-    res = _requests.get('https://finance.yahoo.com/quote/SPY/history')
+    res = _requests.get('https://in.finance.yahoo.com/quote/%5ENSEI/history')
     _YAHOO_COOKIE = res.cookies['B']
 
     pattern = _re.compile('.*"CrumbStore":\{"crumb":"(?P<crumb>[^"]+)"\}')
